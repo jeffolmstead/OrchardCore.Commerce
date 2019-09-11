@@ -1,5 +1,6 @@
 using OrchardCore.Security.Permissions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OrchardCore.Commerce
 {
@@ -25,6 +26,11 @@ namespace OrchardCore.Commerce
                     Permissions = new[] { ManageCommerceSettings }
                 },
             };
+        }
+
+        public Task<IEnumerable<Permission>> GetPermissionsAsync()
+        {
+            return Task.FromResult(GetPermissions());
         }
     }
 }
